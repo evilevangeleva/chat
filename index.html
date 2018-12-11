@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>Socket.IO chat</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial; }
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 0; }
+        #messages li { padding: 5px 10px; }
+        #messages li:nth-child(odd) { background: #eee; }
+    </style>
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+
+    var username = "";
+    var indev=false;
+    if(!indev) {
+        while (username == "")
+            username = prompt("please enter a username");
+    }
+    else {
+        username="test"+Math.random()*10;
+    }
+
+    $(function () {
+        var user_typing = "";
+
+
+
+
+
+        var socket = io();
+        $('form').submit(function(){
+            var message = username + ": " +  $('#m').val()
+            socket.emit('chat message',message);
+            $('#m').val('');
+
+            $('#messages').append($('<li>').text(message));
+            return false;
+        });
+        socket.on('chat message', function(msg){
+            $('#messages').append($('<li>').text(msg));
+        });
+
+        var typing = false;
+        var timeout = undefined;
+
+        function timeoutFunction(){
+            typing = false;
+            socket.emit('no longer typing', username);
+            console.log("timeout")
+        }
+
+
+        $('#m').keyup(function () {
+
+            if (typing == false) {
+                typing = true
+                socket.emit('is typing', username);
+                timeout = setTimeout(timeoutFunction, 500);
+            } else {
+                clearTimeout(timeout);
+                timeout = setTimeout(timeoutFunction, 500);
+            }
+
+        });
+
+        socket.on('is typing', function(user_name){
+           // $('#typing-prompt').empty();
+
+                user_typing = user_name;
+
+
+            $('#typing-prompt').append($('<li id='+user_typing+'>').text(user_typing+" is typing..."));
+            var istyping = new Typed('#'+user_typing, {
+                strings: [user_typing+" is typing..."],
+                typeSpeed: 30,
+                backSpeed: 10,
+                fadeOut: true,
+                startDelay: 400,
+                showCursor: false,
+                loop: true
+            });
+        });
+
+        socket.on('no longer typing', function(user_name){
+
+
+                user_typing = user_name;
+
+            console.log($('#'+user_typing).innerHTML);
+            $('#'+user_typing).remove();
+
+            user_typing ==""
+
+        });
+
+
+
+    });
+
+
+
+
+
+
+
+
+
+</script>
+
+
+<body>
+
+
+
+<ul id="messages"></ul>
+<ul id="typing-prompt"></ul>
+<form action="">
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
+</body>
+</html>
