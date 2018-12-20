@@ -6,7 +6,7 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('reciept', function(req, res){
+app.get('/reciept', function(req, res){
     res.sendFile(__dirname + '/reciept.html');
 });
 io.on('connection', function(socket){
