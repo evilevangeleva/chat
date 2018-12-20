@@ -7,7 +7,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/reciept', function(req, res){
-    res.sendFile(__dirname + '/reciept.html');
+    res.sendFile(__dirname + '/views/reciept.html');
 });
 io.on('connection', function(socket){
     console.log('a user connected');
