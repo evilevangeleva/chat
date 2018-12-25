@@ -9,6 +9,13 @@ app.get('/', function(req, res){
 app.get('/reciept', function(req, res){
     res.sendFile(__dirname + '/views/reciept.html');
 });
+
+app.get('/random-name-picker', function(req, res){
+    res.sendFile(__dirname + '/views/randomname.html');
+});
+
+
+
 io.on('connection', function(socket){
     console.log('a user connected');
     socket.on('disconnect', function(){
