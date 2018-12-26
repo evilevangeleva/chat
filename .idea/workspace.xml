@@ -49,15 +49,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="2325" />
-          <entry key="js" value="752" />
+          <entry key="html" value="2327" />
+          <entry key="js" value="774" />
           <entry key="php" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1992" />
-          <entry key="JavaScript" value="752" />
+          <entry key="HTML" value="1994" />
+          <entry key="JavaScript" value="774" />
           <entry key="Scratch" value="359" />
         </counts>
       </usages-collector>
@@ -88,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="222">
-              <caret line="40" column="49" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="49" />
+              <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -96,8 +96,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+            <state relative-caret-position="222">
+              <caret line="71" column="11" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -140,6 +140,9 @@
       <find>ms</find>
       <find>mess</find>
       <find>connected</find>
+      <find>chat</find>
+      <find>messages</find>
+      <find>chat me</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,12 +269,12 @@
       <workItem from="1544641348448" duration="3130000" />
       <workItem from="1544726938182" duration="25000" />
       <workItem from="1545270913553" duration="2139000" />
-      <workItem from="1545696013732" duration="6662000" />
+      <workItem from="1545696013732" duration="7560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29343000" />
+    <option name="totallyTimeSpent" value="30241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -401,14 +404,14 @@
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
-          <caret line="40" column="49" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="49" />
+          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+        <state relative-caret-position="222">
+          <caret line="71" column="11" selection-start-line="71" selection-start-column="11" selection-end-line="71" selection-end-column="11" />
         </state>
       </provider>
     </entry>

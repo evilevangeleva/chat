@@ -63,7 +63,7 @@
             }
 
         });
-        
+
         $('form').submit(function(){
             var message = username + ": " +  $('#m').val()
             socket.emit('chat message',message);

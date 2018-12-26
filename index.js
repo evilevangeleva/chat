@@ -31,7 +31,7 @@ io.on('connection', function(socket){
 
 io.on('connection', function(socket){
     socket.on('chat message', function(msg){
-       // io.emit('chat message', msg);
+        //io.emit('chat message', msg);
         socket.broadcast.emit('chat message', msg);
     });
 });
@@ -40,11 +40,11 @@ io.on('connection',function(socket){
    // io.emit('chat message', "user connected");
     io.emit('connection message', "user connected");
     socket.on('disconnect', function(){
-        io.emit('chat message', socket.id + " disconnected");
+        io.emit('chat message', socket.name + " disconnected");
        // io.emit('disconnection message', "user disconnected");
     });
 
-    socket.on('connection response', function(user_name){  socket.id=user_name; io.emit('chat message', socket.id + " connected");});
+    socket.on('connection response', function(user_name){  socket.name=user_name; io.emit('chat message', socket.name + " connected");});
 
    // socket.on('disconnection response', function(user_name){io.emit('chat message', user_name + " disconnected");});
 
