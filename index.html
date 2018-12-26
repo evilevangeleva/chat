@@ -45,12 +45,25 @@
 
     $(function () {
         var user_typing = "";
+        var connected = false;
+
 
 
 
 
 
         var socket = io();
+
+
+
+        socket.on('connection message', function () {
+            if (!connected) {
+                socket.emit('connection response', username)
+                connected = true;
+            }
+
+        });
+        
         $('form').submit(function(){
             var message = username + ": " +  $('#m').val()
             socket.emit('chat message',message);
@@ -63,11 +76,9 @@
             $('#messages').append($('<li>').text(msg));
         });
 
-        socket.on('connection message', function(msg){
-            socket.emit("connection response",username)
-        });
-        socket.on('disconnection message', function(msg){
-            socket.emit("disconnection response",username)
+
+        socket.on('disconnection message', function(){
+           // socket.emit("disconnection response",username)
         });
 
         var typing = false;
