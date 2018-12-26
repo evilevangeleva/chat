@@ -18,6 +18,7 @@ app.get('/random-name-picker', function(req, res){
 
 io.on('connection', function(socket){
     console.log('a user connected');
+
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
@@ -43,12 +44,17 @@ io.on('connection', function(socket){
 
 io.on('connection',function(socket){
     io.emit('chat message', "user connected");
-
+    io.emit('connection message', "user connected");
     socket.on('disconnect', function(){
         io.emit('chat message',"user disconnected");
+        io.emit('disconnection message', "user connected");
     });
 
 });
+
+io.on('connection respose', function(user_name){io.emit('chat message', user_name + " connected");})
+
+io.on('disconnection respose', function(user_name){io.emit('chat message', user_name + " disconnected");})
 
 io.on('connection', function(socket){
     socket.on('is typing', function(user_name){

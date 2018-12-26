@@ -63,6 +63,13 @@
             $('#messages').append($('<li>').text(msg));
         });
 
+        socket.on('connection message', function(msg){
+            socket.emit("connection response",username)
+        });
+        socket.on('disconnection message', function(msg){
+            socket.emit("disconnection response",username)
+        });
+
         var typing = false;
         var timeout = undefined;
 
